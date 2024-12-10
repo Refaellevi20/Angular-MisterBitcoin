@@ -1,0 +1,28 @@
+<section class="contact-details">
+    <div class="actions">
+      <button (click)="onGoBack()" class="btn outline back-btn">Back</button>
+      <!-- <button [routerLink]="'/contact/edit/' + contact._id" class="btn outline">
+        Edit
+      </button> //* unbuilt  --> 
+    </div>
+    <div class="contact">
+      <img
+        [src]="'https://robohash.org/' + contact.name + '?set=set3'"
+        alt="robot contact"
+      />
+      <div class="details">
+        <h1 class="name">
+          {{ contact.name }}
+        </h1>
+        <h4 class="email">
+          {{ contact.email }}
+        </h4>
+        <div class="phone badge">
+          {{ contact.phone }}
+        </div>
+      </div>
+    </div>
+    <!-- <transfer-fund [contact]="contact"></transfer-fund> -->
+    <!-- <move-list [user]="user"></move-list> -->
+  </section>
+  

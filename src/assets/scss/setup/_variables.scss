@@ -1,6 +1,6 @@
 $clr1: #37f065;
 $clr2: #07aa22;
-$clr2-dark: rgb(104, 31, 0);
+$clr2-dark: rgb(212, 27, 21);
 $clr3: #c5c5c5;
 $clr4: #696969;
 $clr5: #e6e9ec;
@@ -12,15 +12,6 @@ $tablet-breakpoint: 768px;
 $normal-breakpoint: 900px;
 $wide-breakpoint: 1080px;
 
-$light-box-shadow: rgba($clr2-dark, 0.04) 0px 7px 29px 0px;
-$medium-box-shadow: rgba($clr2-dark, 0.24) 0px 3px 8px;
-$border-box-shadow: rgba($clr2-dark, 0.16) 0px 10px 36px 0px,
-  rgba($clr2-dark, 0.06) 0px 0px 0px 1px;
-
-$ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-$ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
-$ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
-$ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
 //PADDING
 $wide-layout-padding: 80px;

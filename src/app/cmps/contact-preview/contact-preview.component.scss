@@ -3,17 +3,14 @@
 
 .contact-preview {
     padding: 0.5rem 2rem;
-    box-shadow: $light-box-shadow;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    // border: rgba($clr2-dark, 20%) 1px solid;
     background-color: #fff0ea;
   
     &:hover .actions {
-      transition: 0.3s all $ease-in-out-expo;
       opacity: 1;
     }
     img {
@@ -26,7 +23,6 @@
       margin-bottom: 1rem;
     }
     .actions {
-      transition: 0.3s all $ease-in-out-expo;
       position: absolute;
       top: 10px;
       right: 10px;

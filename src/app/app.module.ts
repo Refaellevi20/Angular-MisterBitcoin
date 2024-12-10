@@ -13,6 +13,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ContactPreviewComponent,
     ContactListComponent,
     ContactFilterComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
