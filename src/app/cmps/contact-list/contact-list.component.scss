@@ -1,0 +1,12 @@
+:host {
+    width: 100%;
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-auto-flow: dense;
+      width: 100%;
+      gap: 1rem;
+      padding: 0 ;
+    }
+  }
+  

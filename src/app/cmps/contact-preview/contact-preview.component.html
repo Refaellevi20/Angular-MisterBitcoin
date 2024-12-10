@@ -1,0 +1,29 @@
+<li class="contact-preview">
+    <img
+      [src]="'https://robohash.org/' + contact.name + '?set=set4'"
+      alt="robot contact"
+    />
+    <div class="details">
+      <h2 class="name">
+        {{ contact.name }}
+      </h2>
+      <p class="email">
+        {{ contact.email }}
+      </p>
+      <h5 class="phone badge">
+        {{ contact.phone }}
+      </h5>
+    </div>
+   <div class="actions">
+       <!-- <button [routerLink]="['/contact', contact._id]" class="btn primary">
+        <mat-icon> <span class="small-icon"> visibility </span> </mat-icon>
+      </button> 
+      <button (click)="onEditContact()" class="btn primary">
+        <mat-icon><span class="small-icon"> mode_edit </span></mat-icon>
+      </button> -->
+      <button (click)="onDeleteContact()" class="btn secondary">
+        <mat-icon class="small-icon mat-icon">remove_circle</mat-icon>
+    </button>
+    </div>
+  </li>
+  

@@ -1,0 +1,29 @@
+@import "../../../assets/scss/setup/variables";
+
+:host {
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff3b;
+  backdrop-filter: blur(20px);
+
+  padding: 1rem 0;
+  box-shadow: $light-box-shadow;
+  color: rgb(106, 240, 73);
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    nav {
+      display: flex;
+      :not(:last-child) {
+        margin-inline-end: 1rem;
+      }
+      > * {
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

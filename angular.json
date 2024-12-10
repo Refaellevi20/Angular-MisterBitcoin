@@ -19,7 +19,6 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -39,6 +38,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/magenta-violet.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -98,6 +98,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/magenta-violet.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -105,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a59ce271-73ba-4ba8-a0fb-0711e60afeaf"
   }
 }

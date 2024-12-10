@@ -1,0 +1,18 @@
+<section class="contact-index">
+    <section class="contacts">
+      <div class="intro flex align-center">
+        <h1>Contacts</h1>
+        <!-- <a class="add-contact-btn btn primary" routerLink="/contact/edit"
+          >Add Contact</a
+        > -->
+      </div>
+      <app-contact-filter />
+      <app-contact-list
+        (deleteContact)="onDeleteContact($event)"
+        [contacts]="contacts$ | async"
+      ></app-contact-list>
+    </section>
+  </section>
+  
+  <router-outlet></router-outlet>
+  
