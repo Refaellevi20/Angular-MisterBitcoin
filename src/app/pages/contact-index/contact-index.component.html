@@ -6,7 +6,7 @@
           >Add Contact</a
         > -->
       </div>
-      <app-contact-filter />
+      <app-contact-filter class="main-layout" style="background-color: #fff; width: 80%;"/>
       <app-contact-list
         (deleteContact)="onDeleteContact($event)"
         [contacts]="contacts$ | async"

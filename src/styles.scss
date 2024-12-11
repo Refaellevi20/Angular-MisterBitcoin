@@ -1,4 +1,168 @@
 /* You can add global styles to this file, and also import other style files */
+$clr1: #37f065;
+$clr2: #07aa22;
+$clr2-dark: rgb(212, 27, 21);
+$clr3: #c5c5c5;
+$clr4: #696969;
+$clr5: #e6e9ec;
+
+$nav-height: 65px;
+
+$mobile-breakpoint: 600px;
+$tablet-breakpoint: 768px;
+$normal-breakpoint: 900px;
+$wide-breakpoint: 1080px;
+
+//PADDING
+$wide-layout-padding: 80px;
+$normal-layout-padding: 40px;
+$mobile-layout-padding: 24px;
+
+//MAX-WIDTH
+$primary-max-width: 2360px;
+$secondary-max-width: 1280px;
+$chat-msg-min-width: 370px;
+
+// Breakpoints
+$mobile-breakpoint: 460px;
+$narrow-breakpoint: 744px;
+$normal-breakpoint: 945px;
+$wide-breakpoint: 1440px;
+
+$grid-break-point-1: 460px;
+$grid-break-point-2: 644px;
+$grid-break-point-3: 950px;
+$grid-break-point-4: 1128px;
+$grid-break-point-5: 1440px;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Breakpoint mixins - Mobile First */
+@mixin for-narrow-layout {
+    @media (min-width: $mobile-breakpoint) {
+        @content;
+    }
+}
+
+// @mixin for-normal-layout {
+//     @media (min-width: $narrow-breakpoint) {
+//         @content;
+//     }
+// }
+
+// @mixin for-wide-layout {
+//     @media (min-width: $normal-breakpoint) {
+//         @content;
+//     }
+// }
+
+/* Desktop First */
+@mixin for-mobile-layout {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin for-tablet-layout {
+  @media (max-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin for-normal-layout {
+  @media (max-width: $normal-breakpoint) {
+    @content;
+  }
+}
+
+@mixin for-wide-layout {
+  @media (max-width: $wide-breakpoint) {
+    @content;
+  }
+}
+
+/* Media  Mixins */
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+    pointer-events: none;
+  }
+
+  & > img,
+  & > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  > img {
+    object-fit: cover;
+  }
+}
+
+// Mixin for removing hover effects on iphone screen
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin quotes {
+  &::before {
+    content: open-quote;
+  }
+  &::after {
+    content: close-quote;
+  }
+}
+// REM Functions
+@function rem($size) {
+    $remSize: $size / 16px;
+    @return ($remSize) * 1rem;
+}
+
+// EM Functions
+@function em($pixels, $context: 16px) {
+    @return ($pixels/$context) * 1em;
+}
+
+.main-layout {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    margin: auto;
+    background: black;
+  
+    @include for-narrow-layout {
+      // padding: 0 vars.$mobile-layout-padding;
+      padding: 0 $mobile-layout-padding !important;
+    }
+  
+    @include for-wide-layout {
+      // padding: 0 vars.$normal-layout-padding;
+      padding: 0 $normal-layout-padding !important;
+    }
+  
+    // @include for-large-layout {
+    //   // padding: 0 vars.$wide-layout-padding;
+    //   max-width: $primary-max-width;
+    // }
+  }
+  
+  // GRIDS
+  .simple-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 30px;
+  }

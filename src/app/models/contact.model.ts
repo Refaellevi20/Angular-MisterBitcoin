@@ -3,11 +3,14 @@ export class Contact {
   constructor(
     public name: string = '',
     public email: string = '',
-    public phone: string = ''
+    public phone: string = '',
+    public gender?: string, 
+    public imgIdx?: number
   ) {}
 
-  setId?(id: string = 'r101') {
+  setId?(id: string = 't101') {
     // Implement your own set Id
+    // date.now() for id s
     this._id = id;
   }
 }

@@ -20,7 +20,7 @@ export class UserService {
     if (!loggedInUser) {
       loggedInUser = {
         _id: 'u101',
-        name: 'Srulik Johanson',
+        name: 'Puki baba',
         balance: 200,
         transactions: [],
       };

@@ -1,8 +1,11 @@
 <li class="contact-preview">
     <img
       [src]="'https://robohash.org/' + contact.name + '?set=set4'"
+
       alt="robot contact"
     />
+    <img [src]="'http://xsgames.co/randomusers/assets/avatars/' + contact.gender + '/' + contact.imgIdx + '.jpg'" alt="Avatar">
+
     <div class="details">
       <h2 class="name">
         {{ contact.name }}
