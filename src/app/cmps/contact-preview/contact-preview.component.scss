@@ -2,56 +2,85 @@
 @import "../../../assets/scss/setup/functions";
 
 .contact-preview {
-    padding: 0.5rem 2rem;
-    border-radius: 0.5rem;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+        "avatar details actions";
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    flex-wrap: wrap;
-    position: relative;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.5rem;
     background-color: #fff0ea;
-  
+    gap: 1rem;
+    position: relative;
+
     &:hover .actions {
-      opacity: 1;
+        opacity: 1;
     }
+
     img {
-      max-width: 90px;
+        grid-area: avatar;
+        max-width: 80px;
+        border-radius: 50%;
     }
+
     .details {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .actions {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      gap: 0.45rem;
-      opacity: 0;
-      button {
-        border-radius: 155px;
-        width: 32px;
-        height: 32px;
+        grid-area: details;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        border: none;
-        &:hover {
-          background-color: $clr2-dark;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .name {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $clr-primary;
         }
-        &:not(:last-child) {
-          margin-bottom: 0.5rem;
-        }
-        .mat-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .small-icon {
-          font-size: 16px;
-        }
-      }
     }
-  }
-  
+
+    .actions {
+        grid-area: actions;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+
+        button {
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 0;
+
+            &:hover {
+                background-color: $clr2-dark;
+            }
+
+            .mat-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .small-icon {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+
+}
+
+// @media screen and (max-width: 480px) {
+//   li.contact-preview {
+//     height: 120px;
+//     max-width: 300px;
+//     padding: 0;
+//   }
+// }
