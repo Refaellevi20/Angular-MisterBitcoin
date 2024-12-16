@@ -1,0 +1,8 @@
+<div>
+    <button (click)="sortContacts()">Sort Contacts by Name</button>
+    <ul>
+      <li *ngFor="let contact of contacts">
+        {{ contact.name }}
+      </li>
+    </ul>
+  </div>

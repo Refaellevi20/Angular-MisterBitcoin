@@ -44,7 +44,9 @@
         flex-direction: column;
         gap: 0.5rem;
         opacity: 0;
+        // margin-left: -20px;
         transition: opacity 0.3s ease-in-out;
+        // position: absolute; 
 
         button {
             border: none;
@@ -72,10 +74,11 @@
                 }
             }
         }
+
     }
-
-
 }
+
+
 
 // @media screen and (max-width: 480px) {
 //   li.contact-preview {

@@ -19,7 +19,7 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService
-  ) {}
+  ) {}  //^ ot inject
 
   contact!: Contact
   subscription!: Subscription

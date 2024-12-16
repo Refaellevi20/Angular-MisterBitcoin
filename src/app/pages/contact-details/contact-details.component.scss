@@ -1,0 +1,101 @@
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    transition: box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+  
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+  
+    .back-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 15px;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+  
+    .contact img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #007bff;
+      margin-right: 20px;
+      transition: transform 0.3s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 20px;
+    }
+  
+    .name {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .email {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+  
+    .phone {
+      font-size: 16px;
+      color: #fff;
+      background-color: #28a745;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-weight: 500;
+    }
+  }
+  

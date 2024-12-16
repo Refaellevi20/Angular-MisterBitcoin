@@ -1,0 +1,42 @@
+:host {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000008c;
+    z-index: 99;
+  
+    .contact-edit {
+      min-width: 400px;
+      border-radius: 0.33rem;
+      padding: 2.5rem 3rem;
+      background-color: #fff;
+      h1 {
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        label {
+          font-weight: 600;
+        }
+        input {
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+          border: 1px solid rgba(128, 128, 128, 0.39);
+          padding: 0.5rem 0.75rem;
+        }
+        .actions {
+          margin-top: 1rem;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+  

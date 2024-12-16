@@ -35,9 +35,6 @@ $grid-break-point-3: 950px;
 $grid-break-point-4: 1128px;
 $grid-break-point-5: 1440px;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-/* Breakpoint mixins - Mobile First */
 @mixin for-narrow-layout {
     @media (min-width: $mobile-breakpoint) {
         @content;

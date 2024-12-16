@@ -1,25 +1,25 @@
-@import "../../../assets/scss/setup/variables";
-// @import "../../../assets/scss/base/layout";
-.contact-index {
-  background-color: #ffffff36;
-  backdrop-filter: blur(5px);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  border-radius: 1rem;
+// @import "../../../assets/scss/setup/variables";
+// // @import "../../../assets/scss/base/layout";
+// .contact-index {
+//   background-color: #ffffff36;
+//   backdrop-filter: blur(5px);
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   align-items: flex-start;
+//   justify-content: center;
+//   position: relative;
+//   border-radius: 1rem;
 
-  .contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
+//   .contacts {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//     width: 100%;
 
-    h4 {
-      font-weight: 300;
-      font-size: 20px;
-    }
-  }
-}
+//     h4 {
+//       font-weight: 300;
+//       font-size: 20px;
+//     }
+//   }
+// }

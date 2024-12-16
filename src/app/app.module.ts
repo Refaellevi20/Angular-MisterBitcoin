@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
+import { ContactSortComponent } from './cmps/contact-sort/contact-sort.component';
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ContactDetailsComponent } from './pages/contact-details/contact-details
     ContactListComponent,
     ContactFilterComponent,
     AppHeaderComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    ContactSortComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,

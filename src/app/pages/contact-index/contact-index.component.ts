@@ -11,17 +11,20 @@ import { ContactService } from '../../../services/contact.service';
   styleUrl: './contact-index.component.scss'
 })
 export class ContactIndexComponent implements OnInit {
+  contacts: Contact[] = []; // To store the contacts as an array
+  contacts$!: Observable<Contact[]>
   constructor(private contactService: ContactService) {}
 //* or 
   // private petService = inject(PetService)
   //   private destroyRef = inject(DestroyRef)
 
-  contacts!: Contact[]
-  contacts$!: Observable<Contact[]>
-
   ngOnInit(): void {
     this.contactService.loadContacts()
     this.contacts$ = this.contactService.contacts$
+
+    this.contacts$.subscribe((contacts: Contact[]) => {
+      this.contacts = contacts
+    })
   }
 
   async onDeleteContact(contactId: string) {
@@ -30,5 +33,9 @@ export class ContactIndexComponent implements OnInit {
     } catch (err) {
       console.log('err:', err)
     }
+  }
+
+  onSortedContacts(sortedContacts: Contact[]): void {
+    this.contacts = sortedContacts
   }
 }

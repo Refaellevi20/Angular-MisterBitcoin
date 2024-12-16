@@ -10,7 +10,50 @@
     padding: 1rem;
     margin: 0 auto;
     box-sizing: border-box;
-    // padding-bottom: -60px;
+    // padding-bottom: -60px
+    // @media (max-width: 555px) {
+    //   grid-template-areas: 
+    //     "actions"
+    //     "avatar"
+    //     "details";
+    //   grid-template-columns: 1fr;
+    //   gap: 0.5rem;
+  
+    //   .actions {
+    //     position: static; 
+    //     opacity: 1; 
+    //     order: -1; 
+    //   }
+  
+    //   img {
+    //     max-width: 60px; 
+    //     margin-bottom: 10px;
+    //   }
+    // };
+
+    // @media screen and (max-width: 1200px) {
+    //   .contact-list {
+    //     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    //   }
+    // }
+    
+    // @media screen and (max-width: 900px) {
+    //   .contact-list {
+    //     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    //   }
+    // }
+    
+    // @media screen and (max-width: 600px) {
+    //   .contact-list {
+    //     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    //   }
+    // }
+    
+    // @media screen and (max-width: 400px) {
+    //   .contact-list {
+    //     grid-template-columns: 1fr; 
+    //   }
+    // }
 
     .contact-preview {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
