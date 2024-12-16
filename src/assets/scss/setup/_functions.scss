@@ -8,3 +8,13 @@
 @function em($pixels, $context: 16px) {
     @return ($pixels/$context) * 1em;
 }
+
+// _functions.scss
+@function lighten($color, $percentage) {
+    @return mix(white, $color, $percentage);
+  }
+  
+  @function darken($color, $percentage) {
+    @return mix(black, $color, $percentage);
+  }
+  
