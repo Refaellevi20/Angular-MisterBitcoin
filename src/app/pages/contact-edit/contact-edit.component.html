@@ -1,6 +1,6 @@
 <!-- <div class="modal-overlay" (click)="onCloseModal($event)">
     <div class="modal-content" (click)="$event.stopPropagation()"> -->
-        <div *ngIf="contact" class="contact-edit">
+        <!-- <div *ngIf="contact" class="contact-edit">
             <h1>{{ contact._id ? "Edit" : "Add" }} Contact</h1>
             <form (ngSubmit)="onAddContact()">
                 <label for="name">Name</label>
@@ -17,6 +17,25 @@
                 </div>
             </form>
             <div (click)="onGlobalClick()">Test Global Click</div>
-        <!-- </div>
-    </div> -->
-</div>
+
+</div> -->
+
+<div *ngIf="contact" class="contact-edit" [ngClass]="{'mobile-modal': isMobile}">
+    <h1>{{ contact._id ? "Edit" : "Add" }} Contact</h1>
+    <form #form="ngForm" (ngSubmit)="onAddContact()">
+      <label for="name">Name</label>
+      <input [(ngModel)]="contact.name" name="name" type="text" placeholder="Enter name" id="name" required />
+      <label for="email">Email</label>
+      <input [(ngModel)]="contact.email" name="email" type="email" placeholder="Enter email" id="email" required />
+      <label for="phone">Phone</label>
+      <input [(ngModel)]="contact.phone" name="phone" type="tel" placeholder="Enter phone" id="phone" required />
+      
+      <div class="actions">
+        <button class="btn primary" [disabled]="form.invalid">Save</button>
+        <button (click)="onCancel()" type="button" class="btn outline">Cancel</button>
+      </div>
+    </form>
+    
+    <div (click)="onGlobalClick()">Test Global Click</div>
+  </div>
+  

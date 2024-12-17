@@ -1,42 +1,156 @@
-:host {
+// /* General Modal Styling */
+// .contact-edit {
+//   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+//   border-radius: 15px;
+//   padding: 20px;
+//   max-width: 500px;
+//   margin: 5% auto;
+//   transition: transform 0.3s ease-in-out;
+//   animation: fadeIn 0.5s ease-out;
+// }
+
+// .contact-edit h1 {
+//   text-align: center;
+//   color: #fff;
+// }
+
+// input {
+//   width: 100%;
+//   padding: 12px;
+//   margin: 10px 0;
+//   border: none;
+//   border-radius: 5px;
+//   font-size: 1rem;
+// }
+
+// button {
+//   width: 48%;
+//   padding: 10px;
+//   font-size: 1rem;
+//   margin-top: 15px;
+//   transition: background-color 0.3s ease;
+// }
+
+// .btn.primary {
+//   background-color: #3498db;
+//   color: white;
+// }
+
+// .btn.outline {
+//   background-color: transparent;
+//   border: 2px solid #3498db;
+//   color: #3498db;
+// }
+
+// .btn.primary:hover, .btn.outline:hover {
+//   background-color: #2980b9;
+// }
+
+// /* Mobile Styles */
+@media (max-width: 768px) {
+  .contact-edit {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
     position: fixed;
-    inset: 0;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0000008c;
-    z-index: 99;
-  
-    .contact-edit {
-      min-width: 400px;
-      border-radius: 0.33rem;
-      padding: 2.5rem 3rem;
-      background-color: #fff;
-      h1 {
-        margin-bottom: 1rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f0f0f0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: translateY(100%);
+    animation: slideIn 0.5s forwards;
+  }
+
+  .contact-edit.mobile-modal {
+    transform: translateY(0);
+  }
+
+  .btn {
+    width: 48%;
+    font-size: 1rem;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  .btn.primary {
+    background-color: #2ecc71;
+    color: white;
+  }
+
+  .btn.outline {
+    background-color: transparent;
+    border: 2px solid #2ecc71;
+    color: #2ecc71;
+  }
+
+  .btn.primary:hover, .btn.outline:hover {
+    background-color: #27ae60;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+:host {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000008c;
+  z-index: 99;
+
+  .contact-edit {
+    min-width: 400px;
+    border-radius: 0.33rem;
+    padding: 2.5rem 3rem;
+    background-color: #fff;
+    h1 {
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-weight: 600;
       }
-      form {
-        display: flex;
-        flex-direction: column;
-        label {
-          font-weight: 600;
-        }
-        input {
-          margin-top: 0.5rem;
-          margin-bottom: 1rem;
-          border: 1px solid rgba(128, 128, 128, 0.39);
-          padding: 0.5rem 0.75rem;
-        }
-        .actions {
-          margin-top: 1rem;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.5rem;
-        }
+      input {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(128, 128, 128, 0.39);
+        padding: 0.5rem 0.75rem;
+      }
+      .actions {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
       }
     }
   }
-  
+}

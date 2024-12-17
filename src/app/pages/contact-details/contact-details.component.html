@@ -9,7 +9,7 @@
         [contacts]="contacts$ | async"
       </div> -->
       <button *ngIf="contact._id" (click)="onDeleteContact(contact._id)" class="btn secondary">
-        <mat-icon class="small-icon mat-icon">remove_circle</mat-icon>
+        <img src="/delete.png" alt="delete">
       </button>
       <!-- <app-contact-list
       (deleteContact)="onDeleteContact($event)"
