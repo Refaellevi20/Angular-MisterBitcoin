@@ -16,6 +16,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactSortComponent } from './cmps/contact-sort/contact-sort.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { SignupComponent } from './cmps/contact-signup/contact-signup.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     AppHeaderComponent,
     ContactDetailsComponent,
     ContactSortComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -43,3 +46,7 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// ^ then(petId => petId) we can do it like then(petId)
+// ^ filter(petId => petId) so we can do it here too? yes i can 

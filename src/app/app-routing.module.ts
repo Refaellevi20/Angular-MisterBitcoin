@@ -5,28 +5,48 @@ import { ContactIndexComponent } from './pages/contact-index/contact-index.compo
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactResolver } from '../services/contact.resolver';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SignupComponent } from './cmps/contact-signup/contact-signup.component';
+
 
 const routes: Routes = [
   {
     path: 'contact',
-    component: ContactIndexComponent, children: [
-      { path: 'edit', component: ContactEditComponent },
-      { path: 'edit/:id', component: ContactEditComponent }
+    component: ContactIndexComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'edit',
+        component: ContactEditComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit/:id',
+        component: ContactEditComponent,
+        resolve: { contact: ContactResolver },
+        canActivate: [AuthGuard],
+      }
     ]
   },
   {
     path: 'contact/:id',
     component: ContactDetailsComponent, //* they are also children how works idk
     resolve: { contact: ContactResolver },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: '',
     component: HomePageComponent,
+    canActivate: [AuthGuard],
   },
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

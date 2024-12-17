@@ -20,10 +20,10 @@ export class UserService {
     if (!loggedInUser) {
       loggedInUser = {
         _id: 'u101',
-        name: 'Puki baba',
+        name: ' baba',
         balance: 200,
         transactions: [],
-      };
+      }
     }
     this._save(loggedInUser)
   }
@@ -34,7 +34,7 @@ export class UserService {
       name,
       balance: 200,
       transactions: [],
-    };
+    }
     this._save(newUser)
   }
 
@@ -51,5 +51,3 @@ export class UserService {
     return true
   }
 }
-// function public next(loading)
-// nested route

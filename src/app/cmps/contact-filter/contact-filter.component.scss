@@ -1,28 +1,177 @@
-@import "../../../assets/scss/setup/variables";
+// Variables for colors, dimensions, and timing
+$primary-color: #5a67d8;
+$secondary-color: #d53f8c;
+$border-glow: #ff7e5f;
+$background-dark: #1a202c;
+$text-light: #f7fafc;
+$placeholder-color: #a0aec0;
 
-:host {
-    margin-bottom: 1rem;
-    padding: 0 40px;
+// Keyframe animations
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 5px $primary-color, inset 0 0 5px $primary-color;
   }
-  
+  50% {
+    box-shadow: 0 0 15px $primary-color, inset 0 0 10px $primary-color;
+  }
+  100% {
+    box-shadow: 0 0 5px $primary-color, inset 0 0 5px $primary-color;
+  }
+}
 
-  input {
-    // width: 100%;
-    outline: none;
-    border: 0;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #87fd58;
+@keyframes bounceText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowingBorder {
+  0% {
+    border-color: $primary-color;
+  }
+  50% {
+    border-color: $secondary-color;
+  }
+  100% {
+    border-color: $primary-color;
+  }
+}
+
+@keyframes focusEffect {
+  from {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// General input style
+input {
+  // width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  color: black;
+  background: $background-dark;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  // Placeholder styling
+  &::placeholder {
+    color: $placeholder-color;
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  // Hover Effect
+  &:hover {
+    background-color: lighten($background-dark, 5%);
+    border-color: $border-glow;
+    transform: scale(1.02);
+    // cursor: pointer;
+  }
+
+  // Focus Effect
+  &:focus {
+    animation: borderPulse 1.5s infinite;
+    border-color: $primary-color;
+    background-color: rgba(90, 103, 216, 0.1);
+  }
+
+  // Dynamic border effect using pseudo-elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 3px solid;
+    border-radius: 12px;
+    border-image-source: linear-gradient(45deg, $primary-color, $secondary-color);
+    border-image-slice: 1;
+    opacity: 0.5;
+    animation: glowingBorder 2s infinite linear;
+  }
+
+  // Pulse animation after focus
+  &:focus-within::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $secondary-color;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: bounceText 1.2s infinite ease-in-out;
+  }
+
+  // Responsive style for smaller screens
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  // Disabled input styling
+  &:disabled {
+    background-color: darken($background-dark, 10%);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba($text-light, 0.5);
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+}
+
+// Additional effects for dynamic interactions
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  label {
+    font-size: 1.4rem;
+    color: $text-light;
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
+    animation: glowingBorder 3s infinite alternate;
+  }
+
+  // Shadow on container
+  &:hover {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
     transition: 0.3s;
-    color: $clr1;
-    &:hover {
-      // box-shadow: 0 0 0 5px rgba($clr1, 30%);
-    }
-    &::placeholder {
-      color: $clr4;
-    }
-    &:focus {
-      text-decoration: none;
-      // box-shadow: 0 0 0 5px rgba($clr1, 30%), 0 0 0 1px rgba($clr1, 100%);
-    }
   }
+}
+
+// Custom pseudo-interactive border pulse
+.input-box {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 4px solid transparent;
+    animation: glowingBorder 2s linear infinite;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}

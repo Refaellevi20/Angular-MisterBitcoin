@@ -1,11 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core'
 import { Contact } from '../../models/contact.model'
-import { Subscription } from 'rxjs'
+import { finalize, Subscription } from 'rxjs'
 import { User } from '../../models/user.model'
 import { Router } from '@angular/router'
 import { UserService } from '../../../services/user.service'
 import { ActivatedRoute } from '@angular/router'
-
+import { ContactService } from '../../../services/contact.service'
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'contact-details',
   standalone: false,
@@ -14,11 +17,12 @@ import { ActivatedRoute } from '@angular/router'
   styleUrl: './contact-details.component.scss'
 })
 export class ContactDetailsComponent implements OnInit, OnDestroy {
-
+  @Output() deleteContact = new EventEmitter<string>()
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private contactService: ContactService
   ) {}  //^ ot inject
 
   contact!: Contact
@@ -39,6 +43,20 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
+  onDeleteContact(contactId: string) {
+    this.contactService
+      .deleteContact(contactId)
+      .pipe(
+        finalize(() => {
+          this.router.navigate(['/contact'])
+        })
+      )
+      .subscribe({
+        next: () => console.log('Contact deleted'),
+        error: (err) => console.log('Error:', err),
+      })
+  }
+  
   onGoBack(): void {
     this.router.navigateByUrl('/contact')
   }

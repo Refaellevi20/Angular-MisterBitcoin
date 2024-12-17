@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ContactService } from '../../../services/contact.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { Contact } from '../../models/contact.model';
@@ -11,7 +11,7 @@ import { lastValueFrom, Subscription } from 'rxjs';
   templateUrl: './contact-edit.component.html',
   styleUrl: './contact-edit.component.scss'
 })
-export class ContactEditComponent {
+export class ContactEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private contactService: ContactService,
@@ -19,8 +19,8 @@ export class ContactEditComponent {
     private route: ActivatedRoute
   ) {}
 
-  contact!: Contact;
-  subscription!: Subscription;
+  contact!: Contact
+  subscription!: Subscription
 
   ngOnInit() {
     this.subscription = this.route.data.subscribe(({ contact }) => {
@@ -35,12 +35,25 @@ export class ContactEditComponent {
     } catch (err) {
       console.log('err:', err);
       this.router.navigateByUrl('/contact')
+      //! שימוש: מנווט ישירות ל-URL שניתן לו, ומתייחס אליו כאל נתיב מוחלט.
     }
   }
 
   onCancel() {
     this.router.navigateByUrl('/contact')
   }
+
+  onCloseModal(event: MouseEvent) {
+    console.log('Modal overlay clicked')
+    this.router.navigateByUrl('/contact'); 
+console.log('contact', this.router.navigateByUrl('/contact'));
+
+  }
+
+  onGlobalClick() {
+    console.log('Global click detected');
+  }
+  
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

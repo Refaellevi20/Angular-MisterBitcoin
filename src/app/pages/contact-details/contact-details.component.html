@@ -4,6 +4,17 @@
       <!-- <button [routerLink]="'/contact/edit/' + contact._id" class="btn outline">
         Edit
       </button> //* unbuilt  --> 
+      <!-- <div>
+        (deleteContact)="onDeleteContact($event)"
+        [contacts]="contacts$ | async"
+      </div> -->
+      <button *ngIf="contact._id" (click)="onDeleteContact(contact._id)" class="btn secondary">
+        <mat-icon class="small-icon mat-icon">remove_circle</mat-icon>
+      </button>
+      <!-- <app-contact-list
+      (deleteContact)="onDeleteContact($event)"
+      [contacts]="[contact]"  
+    ></app-contact-list> -->
     </div>
     <div class="contact">
       <img

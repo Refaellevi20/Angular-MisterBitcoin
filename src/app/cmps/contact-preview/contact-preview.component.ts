@@ -16,6 +16,8 @@ export class ContactPreviewComponent {
 
   onEditContact() {
     this.router.navigate(['/contact/edit', this.contact._id])
+    console.log('edit',this.contact._id);
+    
   }  //* unbuild
 
   onDeleteContact() {

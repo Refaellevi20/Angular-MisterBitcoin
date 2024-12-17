@@ -1,15 +1,11 @@
 <section class="contact-index">
     <section class="contacts">
-      <div class="intro flex align-center">
-        <!-- <h1 style="padding-left: 40px;">Contacts</h1> -->
-        <a class="add-contact-btn btn primary" routerLink="/contact/edit"
-          >Add Contact</a>
+      <div class="intro flex space-between main-layout">
+        <div class="flex space-between" style="padding-bottom: 40px !important;">
+    <a class="add-contact-btn btn primary" routerLink="/contact/edit">Add Contact</a>
       </div>
-      <!-- <contact-sort 
-      [contacts]="contacts" 
-      (sortedContacts)="onSortedContacts($event)">
-    </contact-sort> -->
-      <app-contact-filter  class="main-layout"/>
+      <app-contact-filter  class=""/>
+    </div>
       <app-contact-list
         (deleteContact)="onDeleteContact($event)"
         [contacts]="contacts$ | async"

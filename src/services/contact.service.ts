@@ -195,15 +195,21 @@ export class ContactService {
     //return an observable
     return contact
       ? of(contact)
-      : throwError(() => `Contact id ${id} not found!`);
+      : throwError(() => `Contact id ${id} not found!`)
   }
 
-  public deleteContact(id: string) {
-    //mock the server work
+  public deleteContact(id: string): Observable<void> {
+    // Mock the server work
     this._contactsDb = this._contactsDb.filter((contact) => contact._id !== id);
-
-    // change the observable data in the service - let all the subscribers know
-    this._contacts$.next(this._contactsDb);
+  
+    // Notify subscribers of the updated contacts list
+    this._contacts$.next(this._contactsDb)
+  
+    // Return an observable that completes without emitting any value (void)
+    return new Observable<void>((observer) => {
+      observer.next()
+      observer.complete()
+    })
   }
 
   public saveContact(contact: Contact) {

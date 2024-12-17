@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+  
+
 $clr1: #37f065;
 $clr2: #07aa22;
 $clr2-dark: rgb(212, 27, 21);
@@ -111,3 +114,65 @@ body {
   margin: 0;
 }
 
+
+// List
+.clean-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  & > li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Positioning
+.flex {
+  display: flex;
+  &.column {
+    flex-direction: column;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+  &.auto-center {
+    justify-content: center;
+    align-items: center;
+  }
+  > *.full-grow {
+    flex: 1;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.fix {
+  position: fixed;
+}
+// REM Functions

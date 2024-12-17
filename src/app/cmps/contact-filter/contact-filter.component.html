@@ -1,5 +1,7 @@
-<input  [(ngModel)]="contactFilter.term" 
-(ngModelChange)="onSetFilter()"
-type="text"
-name="term"
-placeholder="Search Contact...">
+<input 
+  class="contact-filter-input" 
+  [(ngModel)]="contactFilter.term" 
+  (ngModelChange)="onSetFilter()" 
+  type="text" 
+  name="term" 
+  placeholder="Search Contact...">
